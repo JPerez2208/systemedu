@@ -18,11 +18,32 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-               <form action="">
+               <form action="{{ url('/admin/configuracion/create') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                <div class="row">
-                    <div class="col-md-4">
-                    Logo
-                    </div>
+                             <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="">Logo de la Institucion</label><b> (*)</b>
+                                   <div class="input-group mb-3>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-image"></i></span>
+                                        <input type="File" class="form-control" value="{{ old('logo', $configuracion->logo ?? '') }}" 
+                                        name="logo" placeholder="Escribe aqui..." onchange="mostrarImagen(event)" accept="image/*" required>
+                                        <br>
+                                        <center>
+                                        <img id="preview" style="max-width: 200px; margin-top: 10px;">
+                                        </center>
+                                      
+                                        @error('logo')
+                                        <small style="color: red;">{{ $message }}</small>
+                                        @enderror
+                                      </div>
+                                      <script>
+                                    const mostrarImagen = e =>
+                                        document.getElementById('preview').src = URL.createObjectURL(e.target.files[0]);
+                                </script>
+                                   </div>
+                               </div>
                     <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-4>
@@ -87,6 +108,51 @@
                                 </div>
                              </div>
                              </div>
+                            </div>
+
+                            <div class="row">
+                            <div class="col-md-4"
+                            <div class="from-group">
+                            <label for="">Correo Electronico</label><b> (*)</b>
+                              <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                  </div>
+                                  <input type="correo_electronico" class="form control" value="{{ old('correo_electronico', $configuracion->correo_electronico ?? '') }}" name="correo_electronico" placeholder="Escribe aqui..." required>
+                                  @error('correo_electronico')
+                                  <small style="color: red;">{{ $message }}</small>
+                                  @enderror
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="">Sitio Web</label><b> (*)</b>
+                                   <div class="input-group mb-3>
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                          
+                                        <input type="text" class="form-control" value="{{ old('web', $configuracion->web ?? '') }}" name="web" placeholder="Escribe aqui...">
+                                        @error('web')
+                                        <small style="color: red;">{{ $message }}</small>
+                                        @enderror
+                                      </div>
+                                   </div>
+                                      </div>
+                                   </div>
+                              </div>
+                            </div>
+                           
+                           <hr>
+                            <div class="row">
+                            <div class="col-md-12">
+                            <a href="{{ url('/admin') }}" class="btn btn-default"><i
+                                class="fas fa-arrow-left"></i>Cancelar</a>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>
+                            Guardar</button>
+                            </div>
+                            </div>
+                            </div>
                             </div>
                            </div>
                            </div>
