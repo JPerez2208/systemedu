@@ -23,15 +23,15 @@
                <div class="row">
                              <div class="col-md-4">
                               <div class="form-group">
-                                 <label for="">Logo de la Institucion</label><b> (*)</b>
+                                 <label for="">Logo de la Institucion</label>
                                    <div class="input-group mb-3>
                                       <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-image"></i></span>
                                         <input type="File" class="form-control" value="{{ old('logo', $configuracion->logo ?? '') }}" 
-                                        name="logo" placeholder="Escribe aqui..." onchange="mostrarImagen(event)" accept="image/*" required>
+                                        name="logo" placeholder="Escribe aqui..." onchange="mostrarImagen(event)" accept="image/*">
                                         <br>
                                         <center>
-                                        <img id="preview" style="max-width: 200px; margin-top: 10px;">
+                                        <img id="preview" src="{{ url($configuracion->logo) }}" style="max-width: 200px; margin-top: 10px;">
                                         </center>
                                       
                                         @error('logo')
