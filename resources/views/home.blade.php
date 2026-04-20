@@ -4,7 +4,6 @@
 
 @section('content_header')
     <h1>Dashboard</h1>
-    <h2>Kernel</h2>
 @stop
 
 @section('content')
