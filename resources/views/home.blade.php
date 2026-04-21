@@ -5,6 +5,7 @@
 @section('content_header')
     <h1>Dashboard</h1>
     <h2>Vladimir</h2>
+    <h1>Kernel</h1>
 @stop
 
 @section('content')
